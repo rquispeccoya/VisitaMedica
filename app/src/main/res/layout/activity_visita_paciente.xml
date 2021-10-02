@@ -6,4 +6,68 @@
     android:layout_height="match_parent"
     tools:context=".VisitaPacienteActivity">
 
+    <TextView
+        android:id="@+id/textViewDniVisitaPaciente"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="72dp"
+        android:text="TextView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.396"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="310dp"
+        android:layout_height="235dp"
+        android:layout_marginTop="96dp"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewDniVisitaPaciente">
+
+        <EditText
+            android:id="@+id/editTextPesoPaciente"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="@string/pesoPaciente"
+            android:inputType="numberDecimal" />
+
+        <EditText
+            android:id="@+id/editTextTemperaturaPaciente"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="@string/temperaturaPaciente"
+            android:inputType="numberDecimal" />
+
+        <EditText
+            android:id="@+id/editTextPresionPaciente"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="@string/presionPaciente"
+            android:inputType="numberDecimal" />
+
+        <EditText
+            android:id="@+id/editTextSaturacionPaciente"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="@string/nivelSaturacion"
+            android:inputType="numberDecimal" />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/buttonRegistrarVisitaPaciente"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/btnRegistrar"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
 </androidx.constraintlayout.widget.ConstraintLayout>

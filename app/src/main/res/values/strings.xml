@@ -11,4 +11,5 @@
     <string name="btnRegistrarPaciente">Registrar Paciente</string>
     <string name="btnVisitaPaciente">Visita Paciente</string>
     <string name="btnRegistrar">Registrar</string>
+    <string name="btnEnviarCorreoPaciente">Enviar Correo</string>
 </resources>

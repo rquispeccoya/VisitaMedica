@@ -8,35 +8,46 @@
 
     <TextView
         android:id="@+id/textViewInforacionPaciente"
-        android:layout_width="211dp"
-        android:layout_height="96dp"
-        android:text="TextView"
+        android:layout_width="219dp"
+        android:layout_height="186dp"
+        android:text="Informacion Paciente"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.465"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/buttonVisitaPaciente"
-        app:layout_constraintVertical_bias="0.244" />
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout3"
+        app:layout_constraintVertical_bias="0.278" />
 
-    <Button
-        android:id="@+id/buttonRegistroPaciente"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="124dp"
-        android:text="@string/btnRegistrarPaciente"
+    <LinearLayout
+        android:id="@+id/linearLayout3"
+        android:layout_width="331dp"
+        android:layout_height="286dp"
+        android:layout_marginTop="112dp"
+        android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent">
 
-    <Button
-        android:id="@+id/buttonVisitaPaciente"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="76dp"
-        android:text="@string/btnVisitaPaciente"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.428"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/buttonRegistroPaciente" />
+        <Button
+            android:id="@+id/buttonRegistroPaciente"
+            style="@style/buttonMenuPrincipal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/btnRegistrarPaciente" />
+
+        <Button
+            android:id="@+id/buttonVisitaPaciente"
+            style="@style/buttonMenuPrincipal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/btnVisitaPaciente" />
+
+        <Button
+            android:id="@+id/buttonCorreoPaciente"
+            style="@style/buttonMenuPrincipal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/btnEnviarCorreoPaciente" />
+
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
