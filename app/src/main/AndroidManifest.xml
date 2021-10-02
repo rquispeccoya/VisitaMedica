@@ -10,7 +10,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.VisitaMedica">
         <activity
-            android:name=".MenuPrincipal"
+            android:name=".VisitaPacienteActivity"
+            android:exported="true" />
+        <activity
+            android:name=".MenuPrincipalActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
