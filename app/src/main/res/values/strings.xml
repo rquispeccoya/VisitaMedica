@@ -1,3 +1,14 @@
 <resources>
     <string name="app_name">VisitaMedica</string>
+    <string name="dniPaciente">Ingrese DNI</string>
+    <string name="nombresPaciente">Ingrese nombres</string>
+    <string name="apellidosPaciente">Ingrese apellidos</string>
+    <string name="direccionPaciente">Ingrese direccion</string>
+    <string name="pesoPaciente">Peso</string>
+    <string name="temperaturaPaciente">Temperatura</string>
+    <string name="presionPaciente">Presion</string>
+    <string name="nivelSaturacion">Saturacion</string>
+    <string name="btnRegistrarPaciente">Registrar Paciente</string>
+    <string name="btnVisitaPaciente">Visita Paciente</string>
+    <string name="btnRegistrar">Registrar</string>
 </resources>
