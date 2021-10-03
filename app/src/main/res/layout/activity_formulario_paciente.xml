@@ -60,5 +60,13 @@
         android:ems="10"
         android:hint="@string/direccionPaciente"
         android:inputType="textPersonName" />
+
+    <EditText
+        android:id="@+id/correoPaciente"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Ingrese correo"
+        android:inputType="textPersonName" />
   </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
