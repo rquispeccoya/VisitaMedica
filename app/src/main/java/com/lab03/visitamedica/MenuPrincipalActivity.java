@@ -20,7 +20,7 @@ public class MenuPrincipalActivity extends AppCompatActivity implements View.OnC
     TextView txtInformacionPaciente;
 
     //creamos un arreglo de objetos de tamaño 8 correspondiente a los atributos
-    Object paciente[] = new Object[8];
+    Object paciente[] = new Object[9];
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,8 +66,16 @@ public class MenuPrincipalActivity extends AppCompatActivity implements View.OnC
         } else if (view.getId() == R.id.buttonCorreoPaciente) {//boton envio de correo
             //verificamos si se ingreso un paciente
             if (paciente[0] != null) {
-                intent = new Intent(MenuPrincipalActivity.this, CorreoPacienteActivity.class);
-                startActivity(intent);
+                Intent email = new Intent(Intent.ACTION_SEND);
+                email.putExtra(Intent.EXTRA_EMAIL, new String[]{paciente[4].toString()});
+                email.putExtra(Intent.EXTRA_SUBJECT, "CORREO MEDICO");
+                email.putExtra(Intent.EXTRA_TEXT, "Buenos dias paciente " + paciente[1].toString());
+
+                //need this to prompts email client only
+                email.setType("message/rfc822");
+
+                startActivity(Intent.createChooser(email, "Choose an Email client :"));
+
             } else {
                 Toast.makeText(getApplicationContext(), "Registre un paciente", Toast.LENGTH_LONG).show();
             }
@@ -83,29 +91,35 @@ public class MenuPrincipalActivity extends AppCompatActivity implements View.OnC
             paciente[1] = data.getStringExtra("nombres");
             paciente[2] = data.getStringExtra("apellidos");
             paciente[3] = data.getStringExtra("direccion");
-            paciente[4] =0.0;
+            paciente[4] = data.getStringExtra("correo");
             paciente[5]=0.0;
             paciente[6]=0.0;
             paciente[7]=0.0;
-            txtInformacionPaciente.setText("Dni: " + paciente[0] + "\n " +
+            paciente[8]=0.0;
+
+            txtInformacionPaciente.setText(
+                    "Dni: " + paciente[0] + "\n " +
                     "Nombres: " + paciente[1] + "\n " +
                     "Apellidos: " + paciente[2] + "\n " +
-                    "Direccion: " + paciente[3]);
+                    "Direccion: " + paciente[3] + "\n " +
+                    "Correo: " + paciente[4]
+            );
         } else if (resultCode == 2) {
-            paciente[4] = data.getStringExtra("peso");
-            paciente[5] = data.getStringExtra("temperatura");
-            paciente[6] = data.getStringExtra("presion");
-            paciente[7] = data.getStringExtra("saturacion");
+            paciente[5] = data.getStringExtra("peso");
+            paciente[6] = data.getStringExtra("temperatura");
+            paciente[7] = data.getStringExtra("presion");
+            paciente[8] = data.getStringExtra("saturacion");
 
         }
         txtInformacionPaciente.setText("Dni: " + paciente[0] + "\n " +
                 "Nombres: " + paciente[1] + "\n " +
                 "Apellidos: " + paciente[2] + "\n " +
                 "Direccion: " + paciente[3] + "\n " +
-                "Peso: " + paciente[4] + "\n " +
-                "Temperatura: " + paciente[5] + "\n " +
-                "Presion: " + paciente[6] + "\n " +
-                "Saturacion: " + paciente[7]);
+                "Correo: " + paciente[4] + "\n " +
+                "Peso: " + paciente[5] + "\n " +
+                "Temperatura: " + paciente[6] + "\n " +
+                "Presion: " + paciente[7] + "\n " +
+                "Saturacion: " + paciente[8]);
 
 
     }

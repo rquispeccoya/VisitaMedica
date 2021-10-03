@@ -19,6 +19,7 @@ public class FormularioPacienteActivity extends AppCompatActivity {
     EditText editTextNombres;
     EditText editTextApellidos;
     EditText editTextDireccion;
+    EditText correoPaciente;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,7 +31,9 @@ public class FormularioPacienteActivity extends AppCompatActivity {
         editTextNombres=(EditText) findViewById(R.id.editTextNombresPaciente);
         editTextApellidos=findViewById(R.id.editTextApellidosPaciente);
         editTextDireccion=findViewById(R.id.editTextDireccionPaciente);
+        correoPaciente=findViewById(R.id.correoPaciente);
         btnRegistrar=findViewById(R.id.buttonRegistrar);
+
 
         btnRegistrar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -40,12 +43,14 @@ public class FormularioPacienteActivity extends AppCompatActivity {
                 String nombres=editTextNombres.getText().toString();
                 String apellidos=editTextApellidos.getText().toString();
                 String direccion=editTextDireccion.getText().toString();
+                String correo=correoPaciente.getText().toString();
 
                 Intent intent = new Intent();
                 intent.putExtra("dni",dni);
                 intent.putExtra("nombres",nombres);
                 intent.putExtra("apellidos",apellidos);
                 intent.putExtra("direccion",direccion);
+                intent.putExtra("correo",correo);
                 setResult(0,intent);
                 finish();
             }
