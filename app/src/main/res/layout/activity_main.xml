@@ -4,24 +4,29 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/fondo"
     tools:context=".MenuPrincipalActivity">
 
     <TextView
         android:id="@+id/textViewInforacionPaciente"
-        android:layout_width="219dp"
-        android:layout_height="186dp"
+        android:layout_width="329dp"
+        android:layout_height="209dp"
+        android:background="@drawable/background_text"
+        android:padding="18dp"
         android:text="Informacion Paciente"
+        android:textColor="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.512"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout3"
-        app:layout_constraintVertical_bias="0.278" />
+        app:layout_constraintVertical_bias="0.397" />
 
     <LinearLayout
         android:id="@+id/linearLayout3"
         android:layout_width="331dp"
         android:layout_height="286dp"
-        android:layout_marginTop="112dp"
+        android:layout_marginTop="148dp"
         android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -29,9 +34,10 @@
 
         <Button
             android:id="@+id/buttonRegistroPaciente"
-            style="@style/buttonMenuPrincipal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:background="@drawable/design_button_register_visit"
             android:text="@string/btnRegistrarPaciente" />
 
         <Button
@@ -39,6 +45,8 @@
             style="@style/buttonMenuPrincipal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:background="@drawable/design_button_register_visit"
             android:text="@string/btnVisitaPaciente" />
 
         <Button
@@ -46,6 +54,12 @@
             style="@style/buttonMenuPrincipal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:backgroundTint="@color/white"
+            android:textColor="@color/black"
+            android:padding="17dp"
+            app:cornerRadius="60dp"
+            app:strokeColor="@color/sky_blue"
+            app:strokeWidth="3dp"
             android:text="@string/btnEnviarCorreoPaciente" />
 
     </LinearLayout>

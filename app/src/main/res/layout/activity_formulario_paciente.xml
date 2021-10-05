@@ -7,25 +7,38 @@
     android:layout_height="match_parent"
     tools:context=".FormularioPacienteActivity">
 
+  <ImageView
+      android:id="@+id/imageView"
+      android:layout_width="71dp"
+      android:layout_height="44dp"
+      app:layout_constraintBottom_toTopOf="@+id/title"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toTopOf="parent"
+      app:layout_constraintVertical_bias="0.41"
+      app:srcCompat="@drawable/doctor" />
+
   <Button
       android:id="@+id/buttonRegistrar"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
+      android:layout_width="219dp"
+      android:layout_height="50dp"
       android:layout_marginBottom="124dp"
       android:text="@string/btnRegistrar"
+      app:cornerRadius="60dp"
       app:layout_constraintBottom_toBottomOf="parent"
       app:layout_constraintEnd_toEndOf="parent"
       app:layout_constraintStart_toStartOf="parent"
-      app:layout_constraintTop_toBottomOf="@+id/linearLayout2" />
+      app:layout_constraintTop_toBottomOf="@+id/linearLayout2"
+      app:layout_constraintVertical_bias="0.915" />
 
   <LinearLayout
       android:id="@+id/linearLayout2"
-      android:layout_width="314dp"
-      android:layout_height="239dp"
-      android:layout_marginTop="144dp"
+      android:layout_width="357dp"
+      android:layout_height="338dp"
+      android:layout_marginTop="160dp"
       android:orientation="vertical"
+      android:textFontWeight="700"
       app:layout_constraintEnd_toEndOf="parent"
-      app:layout_constraintHorizontal_bias="0.494"
       app:layout_constraintStart_toStartOf="parent"
       app:layout_constraintTop_toTopOf="parent">
 
@@ -33,40 +46,65 @@
         android:id="@+id/editTextNumber"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_margin="10dp"
         android:ems="10"
         android:hint="@string/dniPaciente"
+        android:textColorHint="@color/gray"
         android:inputType="number" />
 
     <EditText
         android:id="@+id/editTextNombresPaciente"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_margin="10dp"
         android:ems="10"
         android:hint="@string/nombresPaciente"
+        android:textColorHint="@color/gray"
         android:inputType="textPersonName" />
 
     <EditText
         android:id="@+id/editTextApellidosPaciente"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_margin="10dp"
         android:ems="10"
         android:hint="@string/apellidosPaciente"
+        android:textColorHint="@color/gray"
         android:inputType="textPersonName" />
 
     <EditText
         android:id="@+id/editTextDireccionPaciente"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_margin="10dp"
         android:ems="10"
         android:hint="@string/direccionPaciente"
+        android:textColorHint="@color/gray"
         android:inputType="textPersonName" />
 
     <EditText
         android:id="@+id/correoPaciente"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_margin="10dp"
         android:ems="10"
-        android:hint="Ingrese correo"
+        android:hint="@string/correo"
+        android:textColorHint="@color/gray"
         android:inputType="textPersonName" />
   </LinearLayout>
+
+  <TextView
+      android:id="@+id/title"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:fontFamily="sans-serif"
+      android:text="REGISTRAR PACIENTE"
+      android:textColor="@color/sky_blue_dark"
+      android:textFontWeight="700"
+      android:textSize="25dp"
+      app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toTopOf="parent"
+      app:layout_constraintVertical_bias="0.659" />
 </androidx.constraintlayout.widget.ConstraintLayout>
