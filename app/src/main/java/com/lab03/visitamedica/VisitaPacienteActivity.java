@@ -56,7 +56,7 @@ public class VisitaPacienteActivity extends AppCompatActivity {
                 intent.putExtra("temperatura", temperatura);
                 intent.putExtra("presion", presion);
                 intent.putExtra("saturacion", saturacion);
-                setResult(2, intent);
+                setResult(RESULT_OK, intent);
                 finish();
             }
         });

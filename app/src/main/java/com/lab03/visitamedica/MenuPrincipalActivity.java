@@ -22,12 +22,14 @@ public class MenuPrincipalActivity extends AppCompatActivity implements View.OnC
     //creamos un arreglo de objetos de tamaño 8 correspondiente a los atributos
     Object paciente[] = new Object[9];
 
+    String informacionPaciente="";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Log.d(TAG,"onCreate");
+        Log.d(TAG, "onCreate");
 
         btnRegistrarPaciente = findViewById(R.id.buttonRegistroPaciente);
         btnVisitaPaciente = findViewById(R.id.buttonVisitaPaciente);
@@ -58,7 +60,7 @@ public class MenuPrincipalActivity extends AppCompatActivity implements View.OnC
                 Bundle bundle = new Bundle();
                 bundle.putString("dni", paciente[0].toString());
                 intent.putExtras(bundle);
-                startActivityForResult(intent, 2);
+                startActivityForResult(intent, 1);
             } else {
                 Toast.makeText(getApplicationContext(), "Registre un paciente", Toast.LENGTH_LONG).show();
             }
@@ -86,65 +88,68 @@ public class MenuPrincipalActivity extends AppCompatActivity implements View.OnC
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
-        if (resultCode == 0) {
-            paciente[0] = data.getStringExtra("dni");
-            paciente[1] = data.getStringExtra("nombres");
-            paciente[2] = data.getStringExtra("apellidos");
-            paciente[3] = data.getStringExtra("direccion");
-            paciente[4] = data.getStringExtra("correo");
-            paciente[5]=0.0;
-            paciente[6]=0.0;
-            paciente[7]=0.0;
-            paciente[8]=0.0;
+        if (requestCode == 0) {
+            if (resultCode == RESULT_OK) {
+                paciente[0] = data.getStringExtra("dni");
+                paciente[1] = data.getStringExtra("nombres");
+                paciente[2] = data.getStringExtra("apellidos");
+                paciente[3] = data.getStringExtra("direccion");
+                paciente[4] = data.getStringExtra("correo");
 
-            txtInformacionPaciente.setText(
-                    "Dni: " + paciente[0] + "\n " +
-                    "Nombres: " + paciente[1] + "\n " +
-                    "Apellidos: " + paciente[2] + "\n " +
-                    "Direccion: " + paciente[3] + "\n " +
-                    "Correo: " + paciente[4]
-            );
-        } else if (resultCode == 2) {
-            paciente[5] = data.getStringExtra("peso");
-            paciente[6] = data.getStringExtra("temperatura");
-            paciente[7] = data.getStringExtra("presion");
-            paciente[8] = data.getStringExtra("saturacion");
+                informacionPaciente=" Dni: " + paciente[0] + "\n " +
+                        "Nombres: " + paciente[1] + "\n " +
+                        "Apellidos: " + paciente[2] + "\n " +
+                        "Direccion: " + paciente[3] + "\n " +
+                        "Correo: " + paciente[4]+"\n ";
 
+                txtInformacionPaciente.setText(informacionPaciente);
+            }else{
+                txtInformacionPaciente.setText("Informacion Pacientes");
+                Toast.makeText(getApplicationContext(), "Registro cancelado", Toast.LENGTH_LONG).show();
+            }
+
+
+        } else if (requestCode == 1) {
+            if (resultCode == RESULT_OK) {
+                paciente[5] = data.getStringExtra("peso");
+                paciente[6] = data.getStringExtra("temperatura");
+                paciente[7] = data.getStringExtra("presion");
+                paciente[8] = data.getStringExtra("saturacion");
+
+                informacionPaciente += "Peso: " + paciente[5] + "\n " +
+                        "Temperatura: " + paciente[6] + "\n " +
+                        "Presion: " + paciente[7] + "\n " +
+                        "Saturacion: " + paciente[8];
+
+                txtInformacionPaciente.setText(informacionPaciente);
+            }else{
+                txtInformacionPaciente.setText(informacionPaciente);
+                Toast.makeText(getApplicationContext(), "Visita Cancelada", Toast.LENGTH_LONG).show();
+            }
         }
-        txtInformacionPaciente.setText("Dni: " + paciente[0] + "\n " +
-                "Nombres: " + paciente[1] + "\n " +
-                "Apellidos: " + paciente[2] + "\n " +
-                "Direccion: " + paciente[3] + "\n " +
-                "Correo: " + paciente[4] + "\n " +
-                "Peso: " + paciente[5] + "\n " +
-                "Temperatura: " + paciente[6] + "\n " +
-                "Presion: " + paciente[7] + "\n " +
-                "Saturacion: " + paciente[8]);
-
-
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-        Log.d(TAG,"onResume");
+        Log.d(TAG, "onResume");
     }
 
     @Override
     protected void onPause() {
         super.onPause();
-        Log.d(TAG,"onPause");
+        Log.d(TAG, "onPause");
     }
 
     @Override
     protected void onStop() {
         super.onStop();
-        Log.d(TAG,"onStop");
+        Log.d(TAG, "onStop");
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        Log.d(TAG,"onDestroy");
+        Log.d(TAG, "onDestroy");
     }
 }

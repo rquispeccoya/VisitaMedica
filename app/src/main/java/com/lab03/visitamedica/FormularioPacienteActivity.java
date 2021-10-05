@@ -51,7 +51,7 @@ public class FormularioPacienteActivity extends AppCompatActivity {
                 intent.putExtra("apellidos",apellidos);
                 intent.putExtra("direccion",direccion);
                 intent.putExtra("correo",correo);
-                setResult(0,intent);
+                setResult(RESULT_OK, intent);
                 finish();
             }
         });
