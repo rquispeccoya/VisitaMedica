@@ -19,7 +19,7 @@ public class MenuPrincipalActivity extends AppCompatActivity implements View.OnC
     Button btnCorreoPaciente;
     TextView txtInformacionPaciente;
 
-    //creamos un arreglo de objetos de tamaño 8 correspondiente a los atributos
+    //creamos un arreglo de objetos de tamaño 9 correspondiente a los atributos
     Object paciente[] = new Object[9];
 
     String informacionPaciente="";
@@ -56,10 +56,7 @@ public class MenuPrincipalActivity extends AppCompatActivity implements View.OnC
             if (paciente[0] != null) {
 
                 intent = new Intent(MenuPrincipalActivity.this, VisitaPacienteActivity.class);
-
-                Bundle bundle = new Bundle();
-                bundle.putString("dni", paciente[0].toString());
-                intent.putExtras(bundle);
+                intent.putExtra("dni",paciente[0].toString());
                 startActivityForResult(intent, 1);
             } else {
                 Toast.makeText(getApplicationContext(), "Registre un paciente", Toast.LENGTH_LONG).show();
@@ -88,7 +85,9 @@ public class MenuPrincipalActivity extends AppCompatActivity implements View.OnC
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
+        //verificamos los requestCode establecidos para cada activity
         if (requestCode == 0) {
+            //verificamos que los resultCode sean satisfactorios
             if (resultCode == RESULT_OK) {
                 paciente[0] = data.getStringExtra("dni");
                 paciente[1] = data.getStringExtra("nombres");
@@ -103,7 +102,8 @@ public class MenuPrincipalActivity extends AppCompatActivity implements View.OnC
                         "Correo: " + paciente[4]+"\n ";
 
                 txtInformacionPaciente.setText(informacionPaciente);
-            }else{
+
+            }else{//si se cancela el registro
                 txtInformacionPaciente.setText("Informacion Pacientes");
                 Toast.makeText(getApplicationContext(), "Registro cancelado", Toast.LENGTH_LONG).show();
             }
@@ -120,9 +120,9 @@ public class MenuPrincipalActivity extends AppCompatActivity implements View.OnC
                         "Temperatura: " + paciente[6] + "\n " +
                         "Presion: " + paciente[7] + "\n " +
                         "Saturacion: " + paciente[8];
-
                 txtInformacionPaciente.setText(informacionPaciente);
-            }else{
+
+            }else{//si se cancela la visita
                 txtInformacionPaciente.setText(informacionPaciente);
                 Toast.makeText(getApplicationContext(), "Visita Cancelada", Toast.LENGTH_LONG).show();
             }
